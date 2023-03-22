@@ -1,7 +1,7 @@
 import './Expenses.css'
 import { useState } from 'react';
-import ExpenseItem from './ExpenseItem';
 import ExpenseFilter from '../ExpenseFilter/ExpenseFilter';
+import ExpensesList from './ExpensesList';
 
 function Expenses(props) {
   
@@ -11,6 +11,10 @@ function Expenses(props) {
       setFilteredYear(selectedFilter);
   }
 
+  const filteredExpenses = props.expenses.filter(expenses => {
+    return expenses.date.getFullYear().toString() === filteredYear
+  });
+
   return (
     <div className='expenses'>
         
@@ -19,11 +23,7 @@ function Expenses(props) {
         </div>
 
         {/* Go through array and display each item on web page */}
-        {props.expenses.map((expense) => {
-            return (
-                <ExpenseItem key={expense.id} expense={expense}/>
-            )
-        })}
+        <ExpensesList items={filteredExpenses}/>
        
     </div>
   );
