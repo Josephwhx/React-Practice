@@ -7,10 +7,6 @@ function ExpenseItem(props) {
 
     // Array destructuring
     const [title, setTitle] = useState(props.expense.title);
-
-    const clickHandler = () => {
-        setTitle("Updated");
-    }
     
   return (
     <Card key={props.expense.id} className='expense-item'>
@@ -20,7 +16,6 @@ function ExpenseItem(props) {
                         <h2>{title}</h2>
                         <div className='expense-item__price'>${props.expense.amount}</div>
                     </div>
-                    <button onClick={clickHandler}>Change Title</button>
     </Card>
   );
 }
