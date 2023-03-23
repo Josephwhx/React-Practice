@@ -2,6 +2,7 @@ import './Expenses.css'
 import { useState } from 'react';
 import ExpenseFilter from '../ExpenseFilter/ExpenseFilter';
 import ExpensesList from './ExpensesList';
+import ExpensesChart from './ExpensesChart';
 
 function Expenses(props) {
   
@@ -22,7 +23,8 @@ function Expenses(props) {
           <ExpenseFilter defaultFilterValue={filteredYear} onFilterChange={yearFilterHandler}/>
         </div>
 
-        {/* Go through array and display each item on web page */}
+        <ExpensesChart expenses={filteredExpenses}/>
+        
         <ExpensesList items={filteredExpenses}/>
        
     </div>

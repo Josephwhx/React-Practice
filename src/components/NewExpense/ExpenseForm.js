@@ -62,12 +62,12 @@ function ExpenseForm(props) {
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
+        props.onFormStatus();
     }
-
     
 
   return (
-    <form onSubmit={submitHandler}>
+        <form onSubmit={submitHandler}>
         <div className='new-expense__controls'>
             <div className='new-expense__control'>
                 <label>Title</label>
@@ -99,6 +99,7 @@ function ExpenseForm(props) {
             </div>
         </div>
         <div className='new-expense__actions'>
+            <button type="button" onClick={props.onFormStatus}>Close</button>
             <button type="submit">Add Expense</button>
         </div>
     </form>
